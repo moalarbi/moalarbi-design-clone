@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المُنتجات — محمّد الحكيم</title>
+<meta name="description" content="لدي حوالي ٨٠٠ طالب. أغلبهم اشتروا جميع منتجاتي">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.products-hero{padding:80px 0 56px;}
+.products-hero h1{font-size:clamp(36px,5.5vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-bottom:10px;}
+.products-hero p{font-size:17px;color:var(--text-secondary);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding-bottom:80px;}
+.product-full-card{background:var(--bg-card);border:.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:14px;transition:all var(--transition);text-decoration:none;color:var(--text-primary);}
+.product-full-card:hover{border-color:var(--border-md);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.pfc-type{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);}
+.pfc-price{display:inline-flex;align-items:center;gap:6px;direction:ltr;}
+.pfc-price strong{font-size:30px;font-weight:700;letter-spacing:-.03em;color:var(--text-primary);}
+.pfc-price span{font-size:13px;color:var(--text-muted);}
+.pfc-title{font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.4;flex:1;}
+.pfc-desc{font-size:14px;color:var(--text-secondary);line-height:1.65;}
+.pfc-cta{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;color:var(--text-primary);direction:ltr;margin-top:auto;}
+.pfc-cta::after{content:"↗";}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img class="nav-logo-img" src="https://framerusercontent.com/images/fmCiwpNI9nf4g9pRrc2EQRv0HFc.png" alt="" onerror="this.style.display='none'"><span class="nav-logo-text">./</span></a>
+  <ul class="nav-links">
+    <li><a href="consulting.html" class="nav-cta-btn">ابدأ باستشارة</a></li>
+    <li><a href="blog.html">المقالات</a></li>
+    <li><a href="works.html">الأعمال</a></li>
+    <li><a href="services.html">الخدمات</a></li>
+    <li><a href="products.html" class="active">المنتجات</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="القائمة"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer"><a href="consulting.html">ابدأ باستشارة</a><a href="blog.html">المقالات</a><a href="works.html">الأعمال</a><a href="services.html">الخدمات</a><a href="products.html">المنتجات</a></nav>
+
+<div class="container">
+  <div class="products-hero fade-up">
+    <h1>المُنتجات</h1>
+    <p>لدي حوالي ٨٠٠ طالب. أغلبهم اشتروا جميع منتجاتي</p>
+  </div>
+
+  <div class="products-grid">
+    <a href="https://theprocess.ae/step/sales-landing-2/" target="_blank" rel="noopener" class="product-full-card fade-up">
+      <div class="pfc-type">دورة مسجّلة</div>
+      <div class="pfc-price"><strong>$249</strong></div>
+      <div class="pfc-title">المنهجيّة "العلميّة" في الكتابة الإعلانيّة</div>
+      <div class="pfc-desc">تعلّم كيف تكتب نصوصاً تسويقيّة تبيع — من صفحات الهبوط إلى البريد الإلكتروني إلى السوشال ميديا.</div>
+      <div class="pfc-cta">احصل على الدورة</div>
+    </a>
+    <a href="https://theprocess.ae/courses/web-design-in-2024/" target="_blank" rel="noopener" class="product-full-card fade-up">
+      <div class="pfc-type">دورة رقميّة مسجّلة</div>
+      <div class="pfc-price"><strong>$199</strong></div>
+      <div class="pfc-title">دورة تصميم وبناء المواقع</div>
+      <div class="pfc-desc">من الصفر إلى موقع احترافي يبيع خبرتك ويجذب عملاءك المثاليين — باستخدام أحدث الأدوات.</div>
+      <div class="pfc-cta">احصل على الدورة</div>
+    </a>
+    <a href="#" class="product-full-card fade-up">
+      <div class="pfc-type">كتيّب رقمي تفاعلي</div>
+      <div class="pfc-price"><strong>$69</strong></div>
+      <div class="pfc-title">كتيّب استراتيجيّة البراند الشخصي</div>
+      <div class="pfc-desc">ورقة عمل تفاعليّة تساعدك على بناء استراتيجيّة براندك الشخصي خطوة بخطوة.</div>
+      <div class="pfc-cta">احصل على الكتيّب</div>
+    </a>
+    <a href="https://theprocess.ae/courses/creating-courses/" target="_blank" rel="noopener" class="product-full-card fade-up">
+      <div class="pfc-type">دورة مسجّلة</div>
+      <div class="pfc-price"><strong>$199</strong></div>
+      <div class="pfc-title">أساسيات بناء وتسويق الدورات الرقمية</div>
+      <div class="pfc-desc">كيف تبني دورتك الأولى وتطلقها وتبيعها — من التخطيط إلى التسعير إلى التسويق.</div>
+      <div class="pfc-cta">احصل على الدورة</div>
+    </a>
+    <a href="https://theprocess.ae/courses/copywriting-course/" target="_blank" rel="noopener" class="product-full-card fade-up">
+      <div class="pfc-type">ورشة مسجّلة</div>
+      <div class="pfc-price"><strong>$35</strong></div>
+      <div class="pfc-title">ورشة الكتابة الإعلانيّة</div>
+      <div class="pfc-desc">ورشة مكثّفة في أساسيات الكتابة الإعلانيّة لمن يريد البداية السريعة.</div>
+      <div class="pfc-cta">احصل على الورشة</div>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-newsletter">
+      <div class="footer-nl-label"><h3>أحدث مقالاتي</h3><p>مباشرة في بريدك الالكتروني</p></div>
+      <div class="footer-nl-form"><input type="email" class="footer-nl-input" placeholder="بريدك الإلكتروني"><button class="btn btn-dark btn-sm">اشترك</button></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-meta"><span>Bali / Dubai</span><span class="footer-sep">·</span><a href="mailto:hala@moedesigns.io">hala@moedesigns.io</a><span class="footer-sep">·</span><a href="https://nashra.ai" target="_blank">نشرة</a><span class="footer-sep">·</span><a href="consulting.html">احجز استشارة 💤</a></div>
+      <div class="footer-links"><a href="https://hakeem.framer.website" target="_blank">بودكاست حكيم</a><a href="services.html">الخدمات</a><a href="works.html">الأعمال</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js"></script>
+</body>
+</html>

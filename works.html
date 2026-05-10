@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشاريع وأعمال — محمّد الحكيم</title>
+<meta name="description" content="مواقع، منصّات تعليميّة، هويّات بصريّة. ببساطة نبني براندات في بيع الخبرات">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.works-hero { padding: 80px 0 56px; }
+.works-hero h1 {
+  font-size: clamp(36px, 5.5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.works-hero p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  text-align: right;
+}
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+  padding-bottom: 80px;
+}
+.works-item {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  color: var(--text-primary);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.works-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-md); }
+.works-item-thumb {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-hover);
+  border-bottom: 0.5px solid var(--border);
+  transition: opacity var(--transition);
+}
+.works-item:hover .works-item-thumb { opacity: 0.92; }
+.works-item-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 4px; }
+.works-item-type {
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+.works-item-name {
+  font-size: 15.5px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.works-item-arrow {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  direction: ltr;
+}
+.load-more-wrap { text-align: center; padding: 0 0 80px; }
+@media (max-width: 700px) {
+  .works-grid { grid-template-columns: 1fr; }
+  .works-hero { padding: 56px 0 40px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img class="nav-logo-img" src="https://framerusercontent.com/images/fmCiwpNI9nf4g9pRrc2EQRv0HFc.png" alt="محمّد الحكيم" onerror="this.style.display='none'">
+    <span class="nav-logo-text">./</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="consulting.html" class="nav-cta-btn">ابدأ باستشارة</a></li>
+    <li><a href="blog.html">المقالات</a></li>
+    <li><a href="works.html" class="active">الأعمال</a></li>
+    <li><a href="services.html">الخدمات</a></li>
+    <li><a href="products.html">المنتجات</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="القائمة" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="nav-drawer">
+  <a href="consulting.html">ابدأ باستشارة</a>
+  <a href="blog.html">المقالات</a>
+  <a href="works.html">الأعمال</a>
+  <a href="services.html">الخدمات</a>
+  <a href="products.html">المنتجات</a>
+</nav>
+
+<div class="container">
+  <div class="works-hero fade-up">
+    <h1>مشاريع وأعمال</h1>
+    <p>مواقع، منصّات تعليميّة، هويّات بصريّة. ببساطة نبني براندات في بيع الخبرات</p>
+  </div>
+
+  <div class="works-grid">
+    <a href="https://luniva.one" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/POsOdKKsuf4DwZJtGHtqEs5feGA.png?width=800" alt="Luniva" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">Luniva</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://sharik.com.sa" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/G8WizqdxAijGKTt9UTc0HVY.png?width=800" alt="شارك" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">شارك — Coworking</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://muneeramenekher.qa" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/raYQ3RoMpdkLKJNB2Rjcfs2zaAQ.png?width=800" alt="منيرة" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">منصّة تدريبيّة</div><div class="works-item-name">منيرة | الاحتراق الوظيفي</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://thraplatform.com" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/llJvXZ00MzBuL1yrBhyZUv7HPs.png?width=800" alt="ثرى" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">ثرى للعقار</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://withhamad.com" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/cRTR2fID2Y39XSB73OjLjud0s.png?width=800" alt="حمد" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">منصّة تدريبيّة</div><div class="works-item-name">حمد راشد الشامسي</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://cxhub.sa" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/ZsTFZe70Kup1Hf2hSPNa3Idzms.png?width=800" alt="CX Hub" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">CX Hub Saudi</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://www.treehaus.studio/" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/3Gws4oYlKVizxlOuV0DLTjyvk18.png?width=800" alt="Treehaus" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">Treehaus</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://www.elephantor.co" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/qqO1x0mVfa5qdjZqffoph4FW0E.png?width=800" alt="elephantor" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">elephantor</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="http://sallyalshawwa.com/" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/HKZdoGNdedDFpy7Z0uH51HX6FLA.png?width=800" alt="سالي الشوا" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">منصّة تدريبيّة</div><div class="works-item-name">سالي الشوا</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://saraalhumaidan.com" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/YTYtzP1Z9qaT9rJMv9HMrWIwgk.png?width=800" alt="سارة الحميدان" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">منصّة تدريبيّة</div><div class="works-item-name">سارة الحميدان | مستشار ريادة أعمال</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://hodoor.space" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/8RZeiyMgLx4GZSOIyQ7AFt8UJ0.png?width=800" alt="حضور" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">منصّة تدريبيّة</div><div class="works-item-name">أكاديميّة حضور</div><div class="works-item-arrow">↗</div></div>
+    </a>
+    <a href="https://marammokhtar.com" target="_blank" rel="noopener" class="works-item fade-up">
+      <img class="works-item-thumb" src="https://framerusercontent.com/images/Ov1BoZcF17fNtl6NUYv0ESL9bZk.png?width=800" alt="مرام مختار" loading="lazy" onerror="this.style.background='var(--bg-hover)'">
+      <div class="works-item-body"><div class="works-item-type">موقع تجاري</div><div class="works-item-name">ستوديو مرام مختار</div><div class="works-item-arrow">↗</div></div>
+    </a>
+  </div>
+  <div class="load-more-wrap">
+    <button class="btn btn-outline" onclick="this.textContent='لا يوجد المزيد حالياً'">تحميل المزيد</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-newsletter">
+      <div class="footer-nl-label"><h3>أحدث مقالاتي</h3><p>مباشرة في بريدك الالكتروني</p></div>
+      <div class="footer-nl-form">
+        <input type="email" class="footer-nl-input" placeholder="بريدك الإلكتروني">
+        <button class="btn btn-dark btn-sm">اشترك</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-meta">
+        <span>Bali / Dubai</span><span class="footer-sep">·</span>
+        <a href="mailto:hala@moedesigns.io">hala@moedesigns.io</a><span class="footer-sep">·</span>
+        <a href="https://nashra.ai" target="_blank">نشرة</a><span class="footer-sep">·</span>
+        <a href="consulting.html">احجز استشارة 💤</a>
+      </div>
+      <div class="footer-links"><a href="https://hakeem.framer.website" target="_blank">بودكاست حكيم</a><a href="services.html">الخدمات</a><a href="works.html">الأعمال</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js"></script>
+</body>
+</html>

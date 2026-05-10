@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأفكار والمقالات — محمّد الحكيم</title>
+<meta name="description" content="٦،٤٠٠ خبير عربي يتابعون النشرة البريديّة">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<style>
+.blog-layout{display:grid;grid-template-columns:240px 1fr;gap:52px;padding:72px 0 100px;align-items:start;}
+.blog-sidebar{position:sticky;top:calc(var(--nav-h) + 24px);}
+.blog-sidebar-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:14px;}
+.blog-cats{display:flex;flex-direction:column;gap:2px;margin-bottom:32px;}
+.blog-cat{font-size:14px;color:var(--text-secondary);padding:9px 14px;border-radius:var(--radius-sm);cursor:pointer;transition:all var(--transition);text-align:right;}
+.blog-cat:hover,.blog-cat.active{background:var(--bg-hover);color:var(--text-primary);}
+.blog-search{position:relative;}
+.blog-search input{width:100%;font-family:var(--font);font-size:14px;background:var(--bg-card);border:.5px solid var(--border-md);border-radius:var(--radius-sm);padding:10px 14px;color:var(--text-primary);direction:rtl;outline:none;transition:border-color var(--transition);}
+.blog-search input::placeholder{color:var(--text-muted);}
+.blog-search input:focus{border-color:var(--text-primary);}
+.blog-hero-text{margin-bottom:36px;}
+.blog-hero-text h1{font-size:clamp(30px,4.5vw,52px);font-weight:600;letter-spacing:-.028em;line-height:1.12;margin-bottom:12px;}
+.blog-hero-text p{font-size:15px;color:var(--text-secondary);}
+.blog-subscribe-row{display:flex;gap:8px;margin-bottom:52px;flex-direction:row-reverse;}
+.blog-subscribe-row input{font-family:var(--font);font-size:14px;background:var(--bg-card);border:.5px solid var(--border-md);border-radius:var(--radius-pill);padding:10px 18px;color:var(--text-primary);direction:rtl;outline:none;width:220px;transition:border-color var(--transition);}
+.blog-subscribe-row input:focus{border-color:var(--text-primary);}
+.blog-subscribe-row input::placeholder{color:var(--text-muted);}
+.blog-list-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:4px;}
+.blog-count{font-size:28px;font-weight:700;letter-spacing:-.03em;color:var(--text-primary);margin-bottom:32px;}
+.blog-count span{color:var(--accent);}
+@media(max-width:900px){.blog-layout{grid-template-columns:1fr;gap:0;}.blog-sidebar{position:static;margin-bottom:36px;}.blog-cats{flex-direction:row;flex-wrap:wrap;}.blog-cat{padding:7px 12px;}.blog-search input{width:100%;}}
+@media(max-width:600px){.blog-subscribe-row{flex-direction:column;}.blog-subscribe-row input{width:100%;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img class="nav-logo-img" src="https://framerusercontent.com/images/fmCiwpNI9nf4g9pRrc2EQRv0HFc.png" alt="" onerror="this.style.display='none'"><span class="nav-logo-text">./</span></a>
+  <ul class="nav-links">
+    <li><a href="consulting.html" class="nav-cta-btn">ابدأ باستشارة</a></li>
+    <li><a href="blog.html" class="active">المقالات</a></li>
+    <li><a href="works.html">الأعمال</a></li>
+    <li><a href="services.html">الخدمات</a></li>
+    <li><a href="products.html">المنتجات</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="القائمة"><span></span><span></span><span></span></button>
+</nav>
+<nav class="nav-drawer"><a href="consulting.html">ابدأ باستشارة</a><a href="blog.html">المقالات</a><a href="works.html">الأعمال</a><a href="services.html">الخدمات</a><a href="products.html">المنتجات</a></nav>
+
+<div class="container">
+  <div class="blog-layout">
+
+    <!-- Sidebar -->
+    <aside class="blog-sidebar fade-up">
+      <div class="blog-sidebar-title">التصنيفات</div>
+      <div class="blog-cats">
+        <div class="blog-cat active" onclick="filterBlog('')">الكل</div>
+        <div class="blog-cat" onclick="filterBlog('بيع')">البيع والتسعير</div>
+        <div class="blog-cat" onclick="filterBlog('سوشال')">السوشال ميديا والإعلام</div>
+        <div class="blog-cat" onclick="filterBlog('تسويق')">التسويق والتوسّع</div>
+        <div class="blog-cat" onclick="filterBlog('استراتيج')">الاستراتيجيّة والتمركز</div>
+        <div class="blog-cat" onclick="filterBlog('مشروع')">بناء المشروع والمنتجات</div>
+      </div>
+      <div class="blog-search">
+        <input type="text" placeholder="ابحث عن مقال..." oninput="searchBlog(this.value)">
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div>
+      <div class="blog-hero-text fade-up">
+        <h1>الأفكار</h1>
+        <p>٦،٤٠٠ خبير عربي يتابعون النشرة البريديّة</p>
+      </div>
+      <div class="blog-subscribe-row fade-up">
+        <input type="email" placeholder="بريدك الإلكتروني">
+        <button class="btn btn-dark btn-sm">اشترك في النشرة</button>
+      </div>
+      <div class="blog-list-title fade-up">المقالات</div>
+      <div class="blog-count fade-up"><span>١٥٠+</span> مقال</div>
+
+      <div id="blogList" class="fade-up">
+        <a href="https://moedesigns.io/blog/selling-high-ticket" target="_blank" class="blog-row" data-tags="بيع تسعير"><div class="blog-row-title">منهجيّتي لبيع الخدمات الأغلى | Hight ticket</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/4-branding-values" target="_blank" class="blog-row" data-tags="براند استراتيج"><div class="blog-row-title">٤ قِيَم. كُل أصحاب البراندات الناجحة كانت عندهم</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/report-elearning-trends" target="_blank" class="blog-row" data-tags="مشروع دورات"><div class="blog-row-title">تقرير: هل ما زال بيع الدورات مشروع مُربح؟</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/starting-a-new-project" target="_blank" class="blog-row" data-tags="مشروع استراتيج"><div class="blog-row-title">٣ أسئلة قبل أن أبدأ بأي مشروع</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/designing-campaigns" target="_blank" class="blog-row" data-tags="تسويق حملات"><div class="blog-row-title">درست حَملات أفضل من يبيعون المنتجات الرقميّة. اتّضح أن لديهم سر..</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/cognitive-biases" target="_blank" class="blog-row" data-tags="استراتيج تخصص"><div class="blog-row-title">التخصّص يحميك من تحيّزاتك الفكريّة</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/focus-in-techniques" target="_blank" class="blog-row" data-tags="استراتيج تخصص مشروع"><div class="blog-row-title">لماذا أفضّل التخصّص في المُشكلة وليس في التكنيك (الحِرفة)؟</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/4-consulting-niches-for-2026" target="_blank" class="blog-row" data-tags="استراتيج مشروع"><div class="blog-row-title">٤ تخصّصات استشاريّة ستحقق الملايين بحلول ٢٠٢٨</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/youtube-in-2026" target="_blank" class="blog-row" data-tags="سوشال محتوى"><div class="blog-row-title">استراتيجيّتي لليوتيوب والمحتوى في ٢٠٢٦</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog/coaching-value" target="_blank" class="blog-row" data-tags="مشروع تدريب"><div class="blog-row-title">قيمة أي مدرّب تنبع من ٤ نواحي</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog" target="_blank" class="blog-row" data-tags="بيع تسويق"><div class="blog-row-title">كيف تبني عرضاً لا يُرفض</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog" target="_blank" class="blog-row" data-tags="سوشال محتوى"><div class="blog-row-title">الفرق بين المحتوى الذي يبني الثقة والمحتوى الذي يبني الجمهور</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog" target="_blank" class="blog-row" data-tags="تسويق بيع"><div class="blog-row-title">أنواع العملاء في بيع الخبرات — من تستهدف؟</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog" target="_blank" class="blog-row" data-tags="مشروع استراتيج"><div class="blog-row-title">خارطة طريق بناء المشروع الاستشاري في سنة</div><div class="blog-row-arrow">←</div></a>
+        <a href="https://moedesigns.io/blog" target="_blank" class="blog-row" data-tags="بيع تسعير"><div class="blog-row-title">لماذا تخفض سعرك وهذا آخر شيء يجب عليك فعله</div><div class="blog-row-arrow">←</div></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-newsletter">
+      <div class="footer-nl-label"><h3>أحدث مقالاتي</h3><p>مباشرة في بريدك الالكتروني</p></div>
+      <div class="footer-nl-form"><input type="email" class="footer-nl-input" placeholder="بريدك الإلكتروني"><button class="btn btn-dark btn-sm">اشترك</button></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-meta"><span>Bali / Dubai</span><span class="footer-sep">·</span><a href="mailto:hala@moedesigns.io">hala@moedesigns.io</a><span class="footer-sep">·</span><a href="https://nashra.ai" target="_blank">نشرة</a><span class="footer-sep">·</span><a href="consulting.html">احجز استشارة 💤</a></div>
+      <div class="footer-links"><a href="https://hakeem.framer.website" target="_blank">بودكاست حكيم</a><a href="services.html">الخدمات</a><a href="works.html">الأعمال</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/shared.js"></script>
+<script>
+function filterBlog(keyword){
+  document.querySelectorAll('.blog-cat').forEach(c=>c.classList.remove('active'));
+  event.target.classList.add('active');
+  const rows=document.querySelectorAll('#blogList .blog-row');
+  rows.forEach(r=>{
+    if(!keyword){r.style.display='';return;}
+    const tags=(r.dataset.tags||'');
+    r.style.display=tags.includes(keyword)?'':'none';
+  });
+}
+function searchBlog(q){
+  const rows=document.querySelectorAll('#blogList .blog-row');
+  rows.forEach(r=>{
+    const title=r.querySelector('.blog-row-title').textContent;
+    r.style.display=title.includes(q)?'':'none';
+  });
+}
+</script>
+</body>
+</html>

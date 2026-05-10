@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محمّد الحكيم - مستشار في بيع الخبرات</title>
+<meta name="description" content="مستشار بزنس مُختص في المشاريع الاستشاريّة. دبي / الرياض / بالي">
+<meta property="og:title" content="محمّد الحكيم - مستشار في بيع الخبرات">
+<meta property="og:image" content="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png">
+<style>
+
+/* ===== THMANYAH FONT ===== */
+@font-face {
+  font-family: 'ThmanyahSans';
+  src: url('../fonts/thmanyahsans-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ThmanyahSans';
+  src: url('../fonts/thmanyahsans-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ThmanyahSans';
+  src: url('../fonts/thmanyahsans-Bold.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ThmanyahSans';
+  src: url('../fonts/thmanyahsans-Black.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ThmanyahSans';
+  src: url('../fonts/thmanyahsans-Light.woff2') format('woff2');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Backgrounds */
+  --bg:       #0d0d0e;
+  --bg-2:     #141415;
+  --bg-3:     #1a1a1b;
+  --light:    #F5F0EB;
+  --light-s:  #FDFCF9;
+
+  /* Text */
+  --t1:  #f0ece6;
+  --t2:  #7a7773;
+  --t3:  #4a4744;
+  --lt1: #1B1815;
+  --lt2: #6B6762;
+
+  /* Accent */
+  --gold:  #C9A96E;
+  --gold2: rgba(201,169,110,.15);
+  --green: #3ecf5c;
+
+  /* Borders */
+  --b1: rgba(255,255,255,.07);
+  --b2: rgba(255,255,255,.12);
+  --b3: rgba(255,255,255,.20);
+  --lb1: rgba(27,24,21,.08);
+  --lb2: rgba(27,24,21,.15);
+  --lb3: rgba(27,24,21,.25);
+
+  /* Radii */
+  --r-sm:  10px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-pill:999px;
+
+  --max:   1160px;
+  --nav-h: 60px;
+  --f:     'ThmanyahSans', -apple-system, sans-serif;
+  --ease:  cubic-bezier(.4,0,.2,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--f);
+  background:var(--bg);
+  color:var(--t1);
+  direction:rtl;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--f);cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ===== LAYOUT ===== */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,52px)}
+.divider{height:.5px;background:var(--b1);margin:0 clamp(20px,4vw,52px)}
+
+/* ===== NAV ===== */
+.nav{
+  position:sticky;top:0;z-index:200;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,4vw,52px);
+  background:rgba(13,13,14,.90);
+  backdrop-filter:blur(20px) saturate(1.6);
+  -webkit-backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:.5px solid var(--b1);
+  transition:border-color .25s,box-shadow .25s;
+}
+.nav.raised{box-shadow:0 2px 32px rgba(0,0,0,.5);border-color:var(--b2)}
+
+/* Logo (profile photo) — right side in RTL */
+.logo{display:flex;align-items:center;gap:0;flex-shrink:0}
+.logo-img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid var(--b2);flex-shrink:0}
+
+/* Nav links — center */
+.nav-links{display:flex;align-items:center;gap:1px;flex-direction:row-reverse}
+.nav-links a{font-size:13.5px;font-weight:400;color:var(--t2);padding:6px 13px;border-radius:var(--r-pill);transition:background .18s,color .18s}
+.nav-links a:hover,.nav-links a.on{background:rgba(255,255,255,.07);color:var(--t1)}
+
+/* Right group: logo + nav links */
+.nav-right{display:flex;align-items:center;gap:4px}
+
+/* Left group: three-dots + cta */
+.nav-left{display:flex;align-items:center;gap:6px;position:relative}
+
+/* CTA pill */
+.nav-cta{font-size:13px;font-weight:400;color:var(--t1);border:.5px solid var(--b2);background:rgba(255,255,255,.05);padding:6px 16px;border-radius:var(--r-pill);transition:background .18s;white-space:nowrap}
+.nav-cta:hover{background:rgba(255,255,255,.09)}
+
+/* Three-dots button */
+.nav-dots-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:var(--r-pill);
+  border:.5px solid var(--b2);background:rgba(255,255,255,.04);
+  color:var(--t2);font-size:18px;letter-spacing:2px;
+  cursor:pointer;transition:background .18s,color .18s;
+  font-family:var(--f);padding:0 0 3px 0;
+}
+.nav-dots-btn:hover,.nav-dots-btn.open{background:rgba(255,255,255,.09);color:var(--t1);border-color:var(--b3)}
+
+/* Dropdown */
+.nav-dropdown{
+  display:none;position:absolute;
+  top:calc(100% + 8px);left:0;
+  min-width:200px;
+  background:var(--bg-2);
+  border:.5px solid var(--b2);
+  border-radius:var(--r-md);
+  padding:6px;
+  box-shadow:0 8px 40px rgba(0,0,0,.5);
+  z-index:300;
+  animation:ddIn .15s var(--ease);
+}
+.nav-dropdown.open{display:block}
+@keyframes ddIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+.nav-dd-item{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;padding:10px 12px;
+  border-radius:var(--r-sm);
+  font-size:14px;font-weight:400;color:var(--t1);
+  cursor:pointer;transition:background .15s;
+  text-align:right;direction:rtl;
+  background:none;border:none;font-family:var(--f);
+}
+.nav-dd-item:hover{background:rgba(255,255,255,.07)}
+.nav-dd-sep{height:.5px;background:var(--b1);margin:4px 0}
+.nav-dd-moon{font-size:14px;color:var(--t3)}
+
+/* Burger (mobile) */
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:var(--r-sm);transition:background .18s;cursor:pointer;border:none;background:none}
+.burger:hover{background:rgba(255,255,255,.07)}
+.burger span{display:block;width:22px;height:1.5px;background:var(--t1);border-radius:2px;transition:transform .22s var(--ease),opacity .22s}
+.drawer{display:none;position:fixed;inset:var(--nav-h) 0 0 0;background:var(--bg-2);z-index:199;padding:20px clamp(20px,4vw,52px);flex-direction:column;gap:2px;border-top:.5px solid var(--b1)}
+.drawer.open{display:flex;animation:slideDown .2s var(--ease)}
+.drawer a{font-size:17px;color:var(--t1);padding:14px 0;border-bottom:.5px solid var(--b1);transition:opacity .15s}
+.drawer a:last-child{border-bottom:none}
+.drawer a:hover{opacity:.6}
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:calc(100svh - var(--nav-h));
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;
+  padding:clamp(60px,8vh,100px) 0 clamp(40px,5vh,64px);
+  gap:clamp(48px,7vh,80px);
+}
+.hero-h1{
+  font-size:clamp(38px,6.2vw,78px);
+  font-weight:600;line-height:1.08;letter-spacing:-.03em;
+  color:var(--t1);text-align:right;
+  align-self:flex-end;max-width:860px;
+}
+
+/* Hero cards row */
+.hero-cards{
+  display:flex;gap:10px;
+  flex-direction:row-reverse;
+}
+.hero-card{
+  flex:1;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:18px 20px 20px;
+  background:rgba(255,255,255,.04);
+  border:.5px solid var(--b1);
+  border-radius:var(--r-md);
+  min-height:120px;
+  color:var(--t1);
+  transition:background .2s,border-color .2s;
+  cursor:pointer;
+}
+.hero-card:hover{background:rgba(255,255,255,.07);border-color:var(--b2)}
+.hero-card-top{
+  display:flex;align-items:center;gap:6px;
+  justify-content:flex-end;
+}
+.hero-card-dots{
+  font-size:13px;letter-spacing:3px;color:var(--t3);
+  line-height:1;direction:ltr;
+}
+.hero-card-green{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);flex-shrink:0;
+  animation:dp 2.2s ease-in-out infinite;
+}
+.hero-card-body{
+  display:flex;flex-direction:column;gap:3px;text-align:right;
+}
+.hero-card-label{font-size:12.5px;font-weight:400;color:var(--t2)}
+.hero-card-title{font-size:15.5px;font-weight:500;color:var(--t1);line-height:1.35}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f);white-space:nowrap;transition:all .2s var(--spring)}
+.btn-dark{font-size:13.5px;font-weight:500;color:var(--bg);background:var(--t1);padding:10px 20px;border-radius:var(--r-pill);border:.5px solid transparent}
+.btn-dark:hover{opacity:.86;transform:translateY(-1px)}
+.btn-border{font-size:13.5px;font-weight:400;color:var(--t2);border:.5px solid var(--b3);padding:10px 20px;border-radius:var(--r-pill)}
+.btn-border:hover{background:rgba(255,255,255,.06);color:var(--t1)}
+.badge-dot-btn{font-size:12px;font-weight:400;color:var(--t3);border:.5px solid var(--b2);padding:7px 13px;border-radius:var(--r-pill)}
+.badge-dot-btn:hover{border-color:var(--b3);color:var(--t2)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:dp 2.2s ease-in-out infinite}
+@keyframes dp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+
+/* Light section buttons */
+.btn-ink{font-size:13.5px;font-weight:500;color:var(--light-s);background:var(--lt1);padding:10px 20px;border-radius:var(--r-pill)}
+.btn-ink:hover{opacity:.82;transform:translateY(-1px)}
+
+/* ===== SECTION ===== */
+.sec{padding:clamp(56px,7vw,88px) 0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;flex-direction:row-reverse;margin-bottom:28px}
+.sec-title{font-size:18px;font-weight:600;letter-spacing:-.02em;color:var(--t1)}
+.sec-more{font-size:13px;color:var(--t3);display:inline-flex;align-items:center;gap:4px;transition:color .15s}
+.sec-more:hover{color:var(--t2)}
+
+/* Light section header */
+.sec-h.light .sec-title{color:var(--lt1)}
+.sec-h.light .sec-more{color:var(--lt2)}
+
+/* ===== CAROUSEL ===== */
+.c-wrap{overflow:hidden}
+.c-row{
+  display:flex;gap:12px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;
+  flex-direction:row-reverse;padding-bottom:4px;
+}
+.c-row::-webkit-scrollbar{display:none}
+.c-nav{display:flex;gap:8px;margin-top:18px}
+.c-btn{
+  width:34px;height:34px;border-radius:50%;
+  border:.5px solid var(--b2);background:rgba(255,255,255,.05);
+  color:var(--t2);font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .18s;
+}
+.c-btn:hover{background:var(--t1);color:var(--bg);border-color:var(--t1)}
+.c-btn.dark-bg{border-color:var(--lb2);background:rgba(27,24,21,.06);color:var(--lt2)}
+.c-btn.dark-bg:hover{background:var(--lt1);color:var(--light-s);border-color:var(--lt1)}
+
+/* ===== WORK CARDS ===== */
+.work-card{
+  flex:0 0 280px;scroll-snap-align:end;
+  display:block;
+  background:var(--bg-2);border:.5px solid var(--b1);border-radius:var(--r-md);
+  overflow:hidden;color:var(--t1);
+  transition:transform .22s var(--spring),box-shadow .22s,border-color .22s;
+}
+.work-card:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,.4);border-color:var(--b2)}
+.work-card-img{
+  width:100%;height:168px;object-fit:cover;display:block;
+  background:var(--bg-3);border-bottom:.5px solid var(--b1);
+  transition:opacity .2s;
+}
+.work-card:hover .work-card-img{opacity:.85}
+.work-card-body{padding:12px 15px 15px}
+.work-card-type{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);margin-bottom:4px}
+.work-card-name{font-size:14px;font-weight:500;letter-spacing:-.01em;color:var(--t1)}
+
+/* ===== ABOUT STATS ===== */
+.about-band{background:var(--bg);padding:clamp(56px,7vw,88px) 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.stats-side{display:flex;flex-direction:column;gap:12px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat-card{
+  background:var(--bg-2);border:.5px solid var(--b1);
+  border-radius:var(--r-md);padding:20px;
+  transition:border-color .2s;
+}
+.stat-card:hover{border-color:var(--b2)}
+.stat-n{font-size:30px;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--t1);margin-bottom:5px}
+.stat-n em{color:var(--gold);font-style:normal}
+.stat-l{font-size:12px;color:var(--t3);font-weight:400}
+.about-photo-wrap{
+  border-radius:var(--r-md);overflow:hidden;
+  border:.5px solid var(--b1);aspect-ratio:4/2;
+  background:var(--bg-2);
+}
+.about-photo-wrap img{width:100%;height:100%;object-fit:cover}
+.about-text h2{
+  font-size:clamp(18px,2.5vw,28px);font-weight:600;
+  line-height:1.38;letter-spacing:-.02em;
+  color:var(--t1);margin-bottom:16px;
+}
+.about-text h2 em{color:var(--gold);font-style:normal}
+.about-text p{font-size:15px;line-height:1.75;color:var(--t2)}
+.about-text p a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+
+/* ===== NASHRA (LIGHT SECTION) ===== */
+.nashra-band{
+  background:var(--light);
+  border-top:.5px solid rgba(27,24,21,.08);
+  border-bottom:.5px solid rgba(27,24,21,.08);
+  padding:clamp(56px,7vw,88px) 0;
+}
+.nashra-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.nashra-eyebrow{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:14px}
+.nashra-title{font-size:clamp(24px,3.5vw,40px);font-weight:600;letter-spacing:-.025em;line-height:1.15;color:var(--lt1);margin-bottom:10px}
+.nashra-sub{font-size:16px;color:var(--lt2);margin-bottom:26px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;flex-direction:row-reverse;margin-bottom:26px}
+.tag{
+  font-size:12px;color:var(--lt2);
+  background:rgba(27,24,21,.06);
+  border:.5px solid rgba(27,24,21,.12);
+  padding:5px 12px;border-radius:var(--r-pill);
+}
+.nashra-imgs{display:flex;flex-direction:column;gap:10px}
+.nashra-img-card{
+  border-radius:var(--r-md);overflow:hidden;
+  border:.5px solid rgba(27,24,21,.09);
+  background:rgba(27,24,21,.04);
+}
+.nashra-img-card img{width:100%;height:auto;display:block}
+
+/* ===== PRODUCTS ===== */
+.prod-card{
+  flex:0 0 220px;scroll-snap-align:end;
+  background:var(--bg-2);border:.5px solid var(--b1);border-radius:var(--r-md);
+  overflow:hidden;color:var(--t1);
+  display:block;
+  transition:transform .22s var(--spring),box-shadow .22s,border-color .22s;
+}
+.prod-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35);border-color:var(--b2)}
+.prod-cover{
+  width:100%;aspect-ratio:4/3;object-fit:cover;
+  display:block;background:var(--bg-3);
+  border-bottom:.5px solid var(--b1);
+  transition:opacity .2s;
+}
+.prod-card:hover .prod-cover{opacity:.8}
+.prod-body{padding:12px 14px 16px;display:flex;flex-direction:column;gap:6px}
+.prod-type{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--t3)}
+.prod-price{
+  font-size:12px;font-weight:600;color:var(--t1);
+  background:rgba(255,255,255,.08);border-radius:var(--r-pill);
+  padding:3px 9px;direction:ltr;display:inline-block;align-self:flex-start;
+}
+.prod-name{font-size:13.5px;font-weight:500;line-height:1.45;letter-spacing:-.01em}
+.prod-arrow{font-size:13px;color:var(--t3);direction:ltr;margin-top:2px}
+
+/* ===== BLOG (with thumbnails) ===== */
+.blog-item{
+  display:flex;align-items:center;
+  justify-content:space-between;flex-direction:row-reverse;
+  padding:15px 0;border-bottom:.5px solid var(--b1);
+  gap:14px;
+  transition:opacity .18s;cursor:default;
+}
+.blog-item:first-child{border-top:.5px solid var(--b1)}
+.blog-item:hover{opacity:.6}
+.blog-thumb{
+  width:56px;height:56px;border-radius:var(--r-sm);
+  object-fit:cover;flex-shrink:0;
+  background:var(--bg-2);border:.5px solid var(--b1);
+}
+.blog-meta{flex:1;display:flex;flex-direction:column;gap:5px;text-align:right}
+.blog-name{font-size:14.5px;font-weight:400;line-height:1.45;color:var(--t1);letter-spacing:-.01em}
+.blog-cat{
+  display:inline-flex;align-self:flex-end;
+  font-size:11px;font-weight:600;letter-spacing:.04em;
+  padding:3px 9px;border-radius:var(--r-pill);
+}
+.blog-cat.yellow{background:rgba(255,200,50,.15);color:#F5C542}
+.blog-cat.green{background:rgba(80,200,100,.12);color:#5DC878}
+.blog-cat.blue{background:rgba(80,140,255,.12);color:#6BA3FF}
+.blog-cat.red{background:rgba(255,100,80,.12);color:#FF7B6A}
+.blog-cat.teal{background:rgba(80,200,180,.12);color:#52C9B8}
+
+/* ===== MEDIA ===== */
+.media-card{
+  flex:0 0 268px;scroll-snap-align:end;
+  border-radius:var(--r-md);overflow:hidden;
+  background:var(--bg-2);cursor:pointer;position:relative;
+  transition:transform .22s var(--spring),box-shadow .22s;
+}
+.media-card:hover{transform:translateY(-3px);box-shadow:0 12px 44px rgba(0,0,0,.5)}
+.media-card img{width:100%;height:152px;object-fit:cover;display:block;transition:opacity .22s}
+.media-card:hover img{opacity:.7}
+.media-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.play-btn{
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(237,233,226,.9);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--bg);direction:ltr;
+  transition:transform .2s var(--spring);
+}
+.media-card:hover .play-btn{transform:scale(1.12)}
+
+/* ===== CTA DARK BAND ===== */
+.cta-band{background:#111009;padding:clamp(72px,9vw,120px) 0;text-align:center}
+.cta-band h2{font-size:clamp(26px,4.5vw,52px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--t1);margin-bottom:16px}
+.cta-band p{font-size:15px;color:var(--t3);max-width:560px;margin:0 auto 36px;line-height:1.75}
+.cta-acts{display:flex;gap:10px;justify-content:center;flex-direction:row-reverse;flex-wrap:wrap}
+.btn-cream{display:inline-flex;align-items:center;font-family:var(--f);font-size:14px;font-weight:500;color:var(--bg);background:var(--t1);padding:12px 24px;border-radius:var(--r-pill);transition:background .18s,transform .2s var(--spring)}
+.btn-cream:hover{background:#d8d3ca;transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;font-family:var(--f);font-size:14px;font-weight:400;color:var(--t2);background:transparent;border:.5px solid var(--b2);padding:12px 24px;border-radius:var(--r-pill);transition:border-color .18s,color .18s}
+.btn-ghost:hover{border-color:var(--b3);color:var(--t1)}
+
+/* ===== PODCAST ===== */
+.podcast-sec{background:var(--bg-2);border-top:.5px solid var(--b1)}
+.podcast-frame{border-radius:var(--r-lg);overflow:hidden;border:.5px solid var(--b1);background:var(--bg)}
+.podcast-frame iframe{width:100%;height:460px;display:block;border:none}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--bg);border-top:.5px solid var(--b1);padding:clamp(44px,5vw,64px) 0 36px}
+.footer-nl{
+  display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;
+  padding-bottom:36px;border-bottom:.5px solid var(--b1);
+  gap:28px;flex-wrap:wrap;
+}
+.footer-nl-lbl h3{font-size:15px;font-weight:600;letter-spacing:-.02em;color:var(--t1);margin-bottom:3px}
+.footer-nl-lbl p{font-size:13px;color:var(--t2)}
+.footer-form{display:flex;gap:8px;flex-wrap:wrap}
+.nl-in{
+  font-family:var(--f);font-size:13px;
+  background:var(--bg-2);border:.5px solid var(--b2);
+  border-radius:var(--r-pill);padding:9px 16px;
+  color:var(--t1);direction:rtl;outline:none;width:200px;
+  transition:border-color .18s;
+}
+.nl-in::placeholder{color:var(--t3)}
+.nl-in:focus{border-color:var(--b3)}
+.nl-btn{
+  font-family:var(--f);font-size:13px;font-weight:500;
+  color:var(--bg);background:var(--t1);
+  padding:9px 18px;border-radius:var(--r-pill);
+  transition:opacity .18s;cursor:pointer;border:none;white-space:nowrap;
+}
+.nl-btn:hover{opacity:.82}
+.footer-bot{
+  display:flex;align-items:center;justify-content:space-between;flex-direction:row-reverse;
+  padding-top:28px;gap:14px;flex-wrap:wrap;
+}
+.footer-info{display:flex;align-items:center;gap:12px;flex-direction:row-reverse;flex-wrap:wrap}
+.footer-info a,.footer-info span{font-size:12.5px;color:var(--t3);transition:color .15s}
+.footer-info a:hover{color:var(--t2)}
+.f-sep{color:var(--b2);font-size:10px}
+.footer-nav{display:flex;gap:14px;flex-direction:row-reverse}
+.footer-nav a{font-size:12.5px;color:var(--t3);transition:color .15s}
+.footer-nav a:hover{color:var(--t2)}
+
+/* ===== REVEAL ANIMATION ===== */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.07s}
+.rv[data-d="2"]{transition-delay:.14s}
+.rv[data-d="3"]{transition-delay:.21s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .about-grid,.nashra-grid{grid-template-columns:1fr;gap:clamp(28px,5vw,48px)}
+  .sec{padding:clamp(44px,6vw,64px) 0}
+  .about-band,.nashra-band,.cta-band{padding:clamp(48px,6vw,72px) 0}
+  .hero-cards{flex-direction:column}
+  .hero-card{min-height:96px}
+}
+@media(max-width:600px){
+  :root{--nav-h:54px}
+  .hero-h1{font-size:clamp(34px,9vw,50px)}
+  .cta-acts{flex-direction:column;align-items:stretch}
+  .footer-nl{flex-direction:column-reverse;align-items:flex-end}
+  .footer-bot{flex-direction:column;align-items:flex-end}
+  .nl-in{width:100%}
+  .footer-form{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <!-- Right: logo + links -->
+  <div class="nav-right">
+    <a href="index.html" class="logo">
+      <img class="logo-img" src="https://framerusercontent.com/images/fmCiwpNI9nf4g9pRrc2EQRv0HFc.png" alt="محمّد العربي" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links">
+      <li><a href="products.html">المنتجات</a></li>
+      <li><a href="services.html">الخدمات</a></li>
+      <li><a href="works.html">الأعمال</a></li>
+      <li><a href="blog.html">المقالات</a></li>
+    </ul>
+  </div>
+
+  <!-- Left: three-dots + CTA -->
+  <div class="nav-left">
+    <a href="consulting.html" class="nav-cta">ابدأ باستشارة</a>
+    <div style="position:relative">
+      <button class="nav-dots-btn" id="dotsBtn" aria-label="المزيد" aria-expanded="false">···</button>
+      <div class="nav-dropdown" id="navDropdown">
+        <a href="#" class="nav-dd-item">مصادر مجّانيّة</a>
+        <a href="#" class="nav-dd-item">البودكاست</a>
+        <a href="#" class="nav-dd-item">التواصل</a>
+        <div class="nav-dd-sep"></div>
+        <button class="nav-dd-item" id="darkModeBtn">
+          <span>الوضع الليّلي</span>
+          <span class="nav-dd-moon">☽</span>
+        </button>
+      </div>
+    </div>
+    <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <a href="consulting.html">ابدأ باستشارة</a>
+  <a href="blog.html">المقالات</a>
+  <a href="works.html">الأعمال</a>
+  <a href="services.html">الخدمات</a>
+  <a href="products.html">المنتجات</a>
+  <a href="#">مصادر مجّانيّة</a>
+  <a href="#">البودكاست</a>
+</div>
+
+<!-- HERO -->
+<section>
+  <div class="wrap hero">
+    <h1 class="hero-h1 rv">
+      مستشار في بناء المشاريع<br>
+      الاستشاريّة والتدريبيّة.<br>
+      رائد أعمال وكاتب.
+    </h1>
+    <div class="hero-cards rv" data-d="1">
+      <a href="services.html" class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-dots">···</span>
+        </div>
+        <div class="hero-card-body">
+          <span class="hero-card-label">اعمل معي</span>
+          <span class="hero-card-title">خدماتي والباقات</span>
+        </div>
+      </a>
+      <a href="blog.html" class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-dots">···</span>
+        </div>
+        <div class="hero-card-body">
+          <span class="hero-card-label">المقالات</span>
+          <span class="hero-card-title">١٥٠ مقال في بيع الخبرات</span>
+        </div>
+      </a>
+      <a href="consulting.html" class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-green"></span>
+          <span class="hero-card-dots">···</span>
+        </div>
+        <div class="hero-card-body">
+          <span class="hero-card-label">ابدأ معي</span>
+          <span class="hero-card-title">احجز استشارة</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WORKS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <h2 class="sec-title">أحدث أعمالي</h2>
+      <a href="works.html" class="sec-more">عرض الكل ←</a>
+    </div>
+    <div class="c-wrap rv" data-d="1">
+      <div class="c-row" id="wT">
+        <a href="https://luniva.one" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/POsOdKKsuf4DwZJtGHtqEs5feGA.png?width=560" alt="Luniva" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">Luniva</div></div></a>
+        <a href="https://sharik.com.sa" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/G8WizqdxAijGKTt9UTc0HVY.png?width=560" alt="شارك" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">شارك — Coworking</div></div></a>
+        <a href="https://muneeramenekher.qa" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/raYQ3RoMpdkLKJNB2Rjcfs2zaAQ.png?width=560" alt="منيرة" loading="lazy"><div class="work-card-body"><div class="work-card-type">منصّة تدريبيّة</div><div class="work-card-name">منيرة | الاحتراق الوظيفي</div></div></a>
+        <a href="https://thraplatform.com" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/llJvXZ00MzBuL1yrBhyZUv7HPs.png?width=560" alt="ثرى" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">ثرى للعقار</div></div></a>
+        <a href="https://withhamad.com" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/cRTR2fID2Y39XSB73OjLjud0s.png?width=560" alt="حمد" loading="lazy"><div class="work-card-body"><div class="work-card-type">منصّة تدريبيّة</div><div class="work-card-name">حمد راشد الشامسي</div></div></a>
+        <a href="https://cxhub.sa" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/ZsTFZe70Kup1Hf2hSPNa3Idzms.png?width=560" alt="CX Hub" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">CX Hub Saudi</div></div></a>
+        <a href="https://www.treehaus.studio/" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/3Gws4oYlKVizxlOuV0DLTjyvk18.png?width=560" alt="Treehaus" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">Treehaus</div></div></a>
+        <a href="https://www.elephantor.co" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/qqO1x0mVfa5qdjZqffoph4FW0E.png?width=560" alt="elephantor" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">elephantor</div></div></a>
+        <a href="http://sallyalshawwa.com/" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/HKZdoGNdedDFpy7Z0uH51HX6FLA.png?width=560" alt="سالي الشوا" loading="lazy"><div class="work-card-body"><div class="work-card-type">منصّة تدريبيّة</div><div class="work-card-name">سالي الشوا</div></div></a>
+        <a href="https://saraalhumaidan.com" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/YTYtzP1Z9qaT9rJMv9HMrWIwgk.png?width=560" alt="سارة الحميدان" loading="lazy"><div class="work-card-body"><div class="work-card-type">منصّة تدريبيّة</div><div class="work-card-name">سارة الحميدان | مستشار ريادة أعمال</div></div></a>
+        <a href="https://hodoor.space" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/8RZeiyMgLx4GZSOIyQ7AFt8UJ0.png?width=560" alt="حضور" loading="lazy"><div class="work-card-body"><div class="work-card-type">منصّة تدريبيّة</div><div class="work-card-name">أكاديميّة حضور</div></div></a>
+        <a href="https://marammokhtar.com" target="_blank" class="work-card"><img class="work-card-img" src="https://framerusercontent.com/images/Ov1BoZcF17fNtl6NUYv0ESL9bZk.png?width=560" alt="مرام" loading="lazy"><div class="work-card-body"><div class="work-card-type">موقع تجاري</div><div class="work-card-name">ستوديو مرام مختار</div></div></a>
+      </div>
+    </div>
+    <div class="c-nav rv" data-d="2">
+      <button class="c-btn" onclick="sc('wT',-1)">←</button>
+      <button class="c-btn" onclick="sc('wT',1)">→</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<div class="about-band">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="stats-side">
+        <div class="stats-grid">
+          <div class="stat-card rv"><div class="stat-n">٨٠<em>+</em></div><div class="stat-l">مؤسّس تعامل معهم</div></div>
+          <div class="stat-card rv" data-d="1"><div class="stat-n">٧</div><div class="stat-l">سنوات من الخبرة</div></div>
+          <div class="stat-card rv" data-d="2"><div class="stat-n">٤٠٠<em>%</em></div><div class="stat-l">عائد استثمار متوسط</div></div>
+          <div class="stat-card rv" data-d="3"><div class="stat-n">١٥٠<em>+</em></div><div class="stat-l">مقال في بيع الخبرات</div></div>
+        </div>
+        <div class="about-photo-wrap rv" data-d="1">
+          <img src="https://framerusercontent.com/images/7JWcbeOTCwpmSWy6zzAYDfGzBo.png" alt="محمّد الحكيم" loading="lazy" onerror="this.closest('.about-photo-wrap').style.display='none'">
+        </div>
+      </div>
+      <div class="about-text rv" data-d="1">
+        <h2>خلال <em>٧ سنوات</em> ساعدت <em>80+</em> مؤسّس ليبدأ مشروعه في بيع الخبرات. عُملائي يشهدون بعائد استثمار يبدأ من <em>400%</em> خلال السنة الأولى</h2>
+        <p>تشمل <a href="services.html">خدماتي</a> باقات في تأسيس المشروع أو المُساعدة في توسعته. عموماً أساعدك أن تنتقل في بيع الخبرات من هواية ومُقايضة الوقت بالمال إلى شركة من فرد واحد</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NASHRA — LIGHT SECTION -->
+<div class="nashra-band">
+  <div class="wrap">
+    <div class="nashra-grid">
+      <div class="rv">
+        <p class="nashra-eyebrow">Nashra.ai</p>
+        <h2 class="nashra-title">نشرتك البريديّة + مدوّنتك</h2>
+        <p class="nashra-sub">تواصل مع متابعينك مباشرة</p>
+        <div class="tags">
+          <a href="https://nashra.ai" target="_blank" class="tag">تدعم الكتابة بالعربي</a>
+          <a href="https://nashra.ai" target="_blank" class="tag">صفحات هبوط</a>
+          <a href="https://nashra.ai" target="_blank" class="tag">تصميم محمّد الحكيم</a>
+        </div>
+        <a href="https://nashra.ai" target="_blank" class="btn btn-ink">الاشتراك والتفاصيل</a>
+      </div>
+      <div class="nashra-imgs rv" data-d="1">
+        <div class="nashra-img-card"><img src="https://framerusercontent.com/images/cXjJD89XQCvYJDlwpKGZVZGNuvA.png?width=900" alt="Nashra.ai" loading="lazy"></div>
+        <div class="nashra-img-card"><img src="https://framerusercontent.com/images/YAkbCx8VqnFYDk81TcPC8LvCPaY.png?width=900" alt="Nashra.ai" loading="lazy" onerror="this.closest('.nashra-img-card').style.display='none'"></div>
+        <div class="nashra-img-card"><img src="https://framerusercontent.com/images/WTdJ42TAS2EXTCiaYa4WOYVYsis.png?width=900" alt="Nashra.ai" loading="lazy" onerror="this.closest('.nashra-img-card').style.display='none'"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h rv"><h2 class="sec-title">أحدث المنتجات</h2><a href="products.html" class="sec-more">عرض الكل ←</a></div>
+    <div class="c-wrap">
+      <div class="c-row" id="pT">
+        <a href="https://theprocess.ae/step/sales-landing-2/" target="_blank" class="prod-card rv">
+          <img class="prod-cover" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="الكتابة الإعلانيّة" loading="lazy">
+          <div class="prod-body"><div class="prod-type">دورة مسجّلة</div><div class="prod-price">$249</div><div class="prod-name">المنهجيّة "العلميّة" في الكتابة الإعلانيّة</div><div class="prod-arrow">↗</div></div>
+        </a>
+        <a href="https://theprocess.ae/courses/web-design-in-2024/" target="_blank" class="prod-card rv" data-d="1">
+          <img class="prod-cover" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="تصميم المواقع" loading="lazy">
+          <div class="prod-body"><div class="prod-type">دورة رقميّة مسجّلة</div><div class="prod-price">$199</div><div class="prod-name">دورة تصميم وبناء المواقع</div><div class="prod-arrow">↗</div></div>
+        </a>
+        <a href="products.html" class="prod-card rv" data-d="2">
+          <img class="prod-cover" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="البراند الشخصي" loading="lazy">
+          <div class="prod-body"><div class="prod-type">كتيّب رقمي تفاعلي</div><div class="prod-price">$69</div><div class="prod-name">كتيّب استراتيجيّة البراند الشخصي</div><div class="prod-arrow">↗</div></div>
+        </a>
+        <a href="https://theprocess.ae/courses/creating-courses/" target="_blank" class="prod-card rv" data-d="3">
+          <img class="prod-cover" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="الدورات الرقمية" loading="lazy">
+          <div class="prod-body"><div class="prod-type">دورة مسجّلة</div><div class="prod-price">$199</div><div class="prod-name">أساسيات بناء وتسويق الدورات الرقمية</div><div class="prod-arrow">↗</div></div>
+        </a>
+        <a href="https://theprocess.ae/courses/copywriting-course/" target="_blank" class="prod-card rv">
+          <img class="prod-cover" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="الكتابة الإعلانيّة" loading="lazy">
+          <div class="prod-body"><div class="prod-type">ورشة مسجّلة</div><div class="prod-price">$35</div><div class="prod-name">ورشة الكتابة الإعلانيّة</div><div class="prod-arrow">↗</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="c-nav rv"><button class="c-btn" onclick="sc('pT',-1)">←</button><button class="c-btn" onclick="sc('pT',1)">→</button></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOG — with thumbnails -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h rv"><h2 class="sec-title">آخر المقالات</h2><a href="blog.html" class="sec-more">عرض الكل ←</a></div>
+    <div class="rv" data-d="1">
+      <a href="https://moedesigns.io/blog/selling-high-ticket" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">منهجيّتي لبيع الخدمات الأغلى | Hight ticket</div><span class="blog-cat yellow">البيع والتسعير</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/4-branding-values" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">٤ قِيَم. كُل أصحاب البراندات الناجحة كانت عندهم</div><span class="blog-cat green">الاستراتيجيّة</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/report-elearning-trends" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">تقرير: هل ما زال بيع الدورات مشروع مُربح؟</div><span class="blog-cat blue">المشروع والمنتجات</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/starting-a-new-project" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">٣ أسئلة قبل أن أبدأ بأي مشروع</div><span class="blog-cat green">الاستراتيجيّة</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/designing-campaigns" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">درست حَملات أفضل من يبيعون المنتجات الرقميّة. اتّضح أن لديهم سر..</div><span class="blog-cat red">التسويق والتوسّع</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/cognitive-biases" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">التخصّص يحميك من تحيّزاتك الفكريّة</div><span class="blog-cat teal">السوشال ميديا</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/focus-in-techniques" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">لماذا أفضّل التخصّص في المُشكلة وليس في التكنيك (الحِرفة)؟</div><span class="blog-cat green">الاستراتيجيّة</span></div>
+      </a>
+      <a href="https://moedesigns.io/blog/4-consulting-niches-for-2026" target="_blank" class="blog-item">
+        <img class="blog-thumb" src="https://framerusercontent.com/images/SBPSA54o0hTFSchPx9AYP0hvK8.png" alt="" loading="lazy">
+        <div class="blog-meta"><div class="blog-name">٤ تخصّصات استشاريّة ستحقق الملايين بحلول ٢٠٢٨</div><span class="blog-cat yellow">البيع والتسعير</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MEDIA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-h rv"><h2 class="sec-title">محتوى ومُقابلات</h2></div>
+    <div class="c-wrap">
+      <div class="c-row" id="mT">
+        <div class="media-card rv" onclick="window.open('https://youtu.be/scRPKJSot_M','_blank')"><img src="https://i.ytimg.com/vi_webp/scRPKJSot_M/sddefault.webp" alt="مقابلة" loading="lazy"><div class="media-overlay"><div class="play-btn">▶</div></div></div>
+        <div class="media-card rv" data-d="1" onclick="window.open('https://youtu.be/qH-0rSPEgtw','_blank')"><img src="https://i.ytimg.com/vi_webp/qH-0rSPEgtw/sddefault.webp" alt="مقابلة" loading="lazy"><div class="media-overlay"><div class="play-btn">▶</div></div></div>
+        <div class="media-card rv" data-d="2" onclick="window.open('https://youtu.be/DQwYTUYI2tU','_blank')"><img src="https://i.ytimg.com/vi_webp/DQwYTUYI2tU/sddefault.webp" alt="مقابلة" loading="lazy"><div class="media-overlay"><div class="play-btn">▶</div></div></div>
+        <div class="media-card rv" data-d="3" onclick="window.open('https://youtu.be/JCcCtVekzk8','_blank')"><img src="https://i.ytimg.com/vi_webp/JCcCtVekzk8/sddefault.webp" alt="مقابلة" loading="lazy"><div class="media-overlay"><div class="play-btn">▶</div></div></div>
+        <div class="media-card rv" onclick="window.open('https://youtu.be/NqrXHckIrd4','_blank')"><img src="https://i.ytimg.com/vi_webp/NqrXHckIrd4/sddefault.webp" alt="مقابلة" loading="lazy"><div class="media-overlay"><div class="play-btn">▶</div></div></div>
+        <div class="media-card rv" data-d="1" onclick="window.open('https://youtu.be/VXrEIqx7Je0','_blank')"><img src="https://i.ytimg.com/vi_webp/VXrEIqx7Je0/sddefault.webp" alt="مقابلة" loading="lazy"><div class="media-overlay"><div class="play-btn">▶</div></div></div>
+      </div>
+    </div>
+    <div class="c-nav rv"><button class="c-btn" onclick="sc('mT',-1)">←</button><button class="c-btn" onclick="sc('mT',1)">→</button></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2 class="rv">تبحث عن خدماتي؟</h2>
+    <p class="rv" data-d="1">ومستعد أن تستثمر فيه وتعمل مع الأفضل؟ فرق شاسع ما بين بناء المشروع الاستشاري والتعامل معه كهواية. المشروع يتطلّب رؤية، تركيز وخطّة واضحة في التسويق والمُنتجات. يمكنك أن تعمل مع ٥٠٠ خبير في العالم العربي لتحصل على خبرتي أو يمكنك أن تحصل عليها مباشرة بالضغط على الزر أدناه.</p>
+    <div class="cta-acts rv" data-d="2">
+      <a href="services.html" class="btn-cream">الخدمات والباقات</a>
+      <a href="consulting.html" class="btn-ghost">تواصل معي</a>
+    </div>
+  </div>
+</div>
+
+<!-- PODCAST -->
+<div class="podcast-sec sec">
+  <div class="wrap">
+    <div class="sec-h rv"><h2 class="sec-title">بودكاست حكيم</h2><a href="https://moedesigns.io/podcast" target="_blank" class="sec-more">جميع الحلقات ←</a></div>
+    <div class="podcast-frame rv" data-d="1">
+      <iframe src="https://podtree.vercel.app/hakeem/embed" loading="lazy" title="بودكاست حكيم" allow="autoplay"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-nl">
+      <div class="footer-nl-lbl"><h3>أحدث مقالاتي</h3><p>مباشرة في بريدك الالكتروني</p></div>
+      <div class="footer-form">
+        <input type="email" class="nl-in" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني">
+        <button class="nl-btn" onclick="nlSub(this)">اشترك</button>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <div class="footer-info">
+        <span>Bali / Dubai</span><span class="f-sep">·</span>
+        <a href="mailto:hala@moedesigns.io">hala@moedesigns.io</a><span class="f-sep">·</span>
+        <a href="https://nashra.ai" target="_blank">نشــرة</a><span class="f-sep">·</span>
+        <a href="consulting.html">احجز استشارة 💤</a>
+      </div>
+      <div class="footer-nav">
+        <a href="https://hakeem.framer.website" target="_blank">بودكاست حكيم</a>
+        <a href="services.html">الخدمات</a>
+        <a href="works.html">الأعمال</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav shadow on scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('raised',scrollY>24),{passive:true});
+
+// Hamburger
+const burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+burger.addEventListener('click',()=>{
+  const o=drawer.classList.toggle('open');
+  burger.setAttribute('aria-expanded',o);
+  const s=burger.querySelectorAll('span');
+  if(o){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';document.body.style.overflow='hidden';}
+  else{s.forEach(x=>{x.style.transform='';x.style.opacity='';});document.body.style.overflow='';}
+});
+
+// Three-dots dropdown
+const dotsBtn=document.getElementById('dotsBtn'),navDropdown=document.getElementById('navDropdown');
+dotsBtn.addEventListener('click',e=>{
+  e.stopPropagation();
+  const open=navDropdown.classList.toggle('open');
+  dotsBtn.classList.toggle('open',open);
+  dotsBtn.setAttribute('aria-expanded',open);
+});
+document.addEventListener('click',e=>{
+  if(!dotsBtn.contains(e.target)&&!navDropdown.contains(e.target)){
+    navDropdown.classList.remove('open');
+    dotsBtn.classList.remove('open');
+  }
+  if(!nav.contains(e.target)&&!drawer.contains(e.target)&&drawer.classList.contains('open')){
+    drawer.classList.remove('open');document.body.style.overflow='';
+    burger.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';});
+  }
+});
+
+// Carousel
+window.sc=function(id,dir){
+  const t=document.getElementById(id);
+  const card=t.querySelector('.work-card,.prod-card,.media-card');
+  t.scrollBy({left:dir*(card?card.offsetWidth+12:292)*-1,behavior:'smooth'});
+};
+
+// Reveal
+const rvs=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.06,rootMargin:'0px 0px -28px 0px'});
+  rvs.forEach(el=>io.observe(el));
+}else rvs.forEach(el=>el.classList.add('in'));
+
+// Newsletter
+window.nlSub=function(btn){
+  const i=btn.previousElementSibling;
+  if(i&&i.value.includes('@')){btn.textContent='✓ تم';btn.style.pointerEvents='none';i.value='';}
+};
+
+// Active nav
+const p=location.pathname.replace(/\/$|index\.html$/,'');
+document.querySelectorAll('.nav-links a,.drawer a').forEach(a=>{
+  const h=(a.getAttribute('href')||'').replace(/\.html$/,'');
+  if(h&&h!='/'&&p.includes(h))a.classList.add('on');
+});
+</script>
+</body>
+</html>
