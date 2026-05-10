@@ -186,21 +186,22 @@ ul{list-style:none}
 /* ===== HERO ===== */
 .hero{
   min-height:calc(100svh - var(--nav-h));
-  display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;
   padding:clamp(60px,8vh,100px) 0 clamp(40px,5vh,64px);
-  gap:clamp(48px,7vh,80px);
+  gap:clamp(40px,6vh,68px);
 }
 .hero-h1{
-  font-size:clamp(38px,6.2vw,78px);
-  font-weight:600;line-height:1.08;letter-spacing:-.03em;
+  font-size:clamp(36px,4.6vw,62px);
+  font-weight:600;line-height:1.1;letter-spacing:-.025em;
   color:var(--t1);text-align:right;
-  align-self:flex-end;max-width:860px;
+  max-width:760px;
 }
 
 /* Hero cards row */
 .hero-cards{
   display:flex;gap:10px;
   flex-direction:row-reverse;
+  width:100%;
 }
 .hero-card{
   flex:1;
